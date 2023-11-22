@@ -14,6 +14,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// la ruta es http://localhost:8000/api/products
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+// la ruta es http://localhost:8000/api/products
+Route::get('/products', 'ProductController@index');
+
+// la ruta es http://localhost:8000/api/products
+Route::post('/products', 'ProductController@store');
+
+// la ruta es http://localhost:8000/api/products/1
+Route::put('/products/{id}', 'ProductController@update');
+
+// la ruta es http://localhost:8000/api/products/1
+Route::delete('/products/{id}', 'ProductController@destroy');
+
