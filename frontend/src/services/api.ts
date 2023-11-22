@@ -12,5 +12,21 @@ const requests = {
 };
 
 
-const agent = {}
+const product = {
+
+        // Obtener la lista de productos
+        list: () => requests.get('/api/products'),
+
+        // Agregar un nuevo producto
+        create: (product: any) => requests.post('/api/products', product),
+
+        // Actualizar un producto existente
+        update: (id: number, product: any) => requests.put(`/api/products/${id}`, product),
+
+        // Eliminar un producto
+        delete: (id: number) => requests.del(`/api/products/${id}`)
+
+}
+
+const agent = { product };
 export default agent;

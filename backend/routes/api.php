@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,21 +15,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// la ruta es http://localhost:8000/api/products
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// http://localhost:8000/api/products
+Route::get('products', [ProductController::class, 'index']);
 
+// http://localhost:8000/api/products
+Route::post('products', [ProductController::class, 'store']);
 
-// la ruta es http://localhost:8000/api/products
-Route::get('/products', 'ProductController@index');
+// http://localhost:8000/api/products/1
+Route::put('products/{id}', [ProductController::class, 'update']);
 
-// la ruta es http://localhost:8000/api/products
-Route::post('/products', 'ProductController@store');
+// http://localhost:8000/api/products/1
+Route::delete('products/{id}', [ProductController::class, 'destroy']);
 
-// la ruta es http://localhost:8000/api/products/1
-Route::put('/products/{id}', 'ProductController@update');
-
-// la ruta es http://localhost:8000/api/products/1
-Route::delete('/products/{id}', 'ProductController@destroy');
 

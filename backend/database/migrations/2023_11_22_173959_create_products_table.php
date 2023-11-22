@@ -10,7 +10,7 @@ class CreateProductsTable extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->number('price');
+            $table->integer('price');
             $table->text('description')->nullable();
             $table->string('image');// Puedes cambiar este campo según tu preferencia (URL o BLOB)
             $table->timestamps();
